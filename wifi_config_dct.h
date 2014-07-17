@@ -36,8 +36,8 @@
 #define SOFT_AP_CHANNEL      1
 
 /* This is the default AP the device will connect to (as a client)*/
-#define CLIENT_AP_SSID       "YOUR_AP_SSID"
-#define CLIENT_AP_PASSPHRASE "YOUR_AP_PASSPHRASE"
+#define CLIENT_AP_SSID       "BRCMGUEST"
+#define CLIENT_AP_PASSPHRASE "lfylfthft"
 #define CLIENT_AP_BSS_TYPE   WICED_BSS_TYPE_INFRASTRUCTURE
 #define CLIENT_AP_SECURITY   WICED_SECURITY_WPA2_MIXED_PSK
 #define CLIENT_AP_CHANNEL    1
