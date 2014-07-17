@@ -33,5 +33,15 @@
     </table>
     <div id="currentData" >Retrieving current sensor data...
     </div>
+    <div style="margin-left:20px" id="main_text" >
+      <p>Click a button, then look at the UART ... </p>
+      <form name="input" action="/button_handler" method="get"> <table> <tr>
+        <td><input type="submit" name=btname value="Button-01" /></td>
+        <td><input type="submit" name=btname value="Button-02" /></td>
+        <td><input type="submit" name=btname value="Button-03" /></td>
+        <td><input type="submit" name=btname value="Button-04" /></td>
+      </tr>
+    </form>
+  </div>
   </body>
 </html>
