@@ -11,12 +11,12 @@
     /* <![CDATA[ */
        function reloadData()
        {
-         do_ajax('/fb_report.html','currentData',null,0,null,null,'<p>There was a problem retrieving data</p>',null);
-         timeoutID = setTimeout('reloadData()', 1000);
+         /*do_ajax('/fb_report.html','currentData',null,0,null,null,'<p>There was a problem retrieving data</p>',null);
+         timeoutID = setTimeout('reloadData()', 1000);*/
        }
        function loadfbdata()
        {
-        do_ajax('https://graph.facebook.com/wiced123/posts?access_token=CAAKbXnsGZA3gBAPrZB00QcUtdvbwKPoPIIPrePrjX0xwr2Xw1V9fBRX7LlFxvan84cc5F1nOE2fZA1QvkC8COqahAJMH56onsBIxPWouhF7fhlPW291f2NdPVHjyyOeJLNjZCyRFWJecRxhSom97IFuxTF5hmIAJDaHAdu2NqHJp3d1HO3VfJ8DDjT4oYys9z3c2kAk57ap5ZAetkAn2BxjR1TI3JH7wZD',
+        do_ajax('https://graph.facebook.com/wiced123/posts?access_token=CAAKbXnsGZA3gBAHXB9ro6QcIquhRBmlW2Y2fEGa4sQrACM3VxMLru7FS5tPFZApV4dru5Dlh81WLrAyUC9yYVX57RgLdAighkeERgTxVohVQqPvI7ZBRy9oDR5BZA4g1o5r2AnocutDZBFiGisES00G9WnbS2Et81QOqUJbG0iZCGyB2nnjo8N7Re1H1H4a5kx3p843zOPKuhd6nsP0Ujzs0gZC5vmZBoLcZD',
          'currentData', null, 0, null, null, '<p>FB data error</p>, null');
         timeoutID = setTimeout('reloadData()', 1000);
 
