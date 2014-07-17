@@ -114,9 +114,11 @@ START_OF_HTTP_PAGE_DATABASE(appliance_web_pages)
         //{ "/temp_down",                      "text/html",                WICED_DYNAMIC_URL_CONTENT, .url_content.dynamic_data = {process_temperature_down, 0 }, },
         { "/images/favicon.ico",             "image/vnd.microsoft.icon", WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_favicon_ico, sizeof(resource_images_DIR_favicon_ico)}, },
         { "/scripts/general_ajax_script.js", "application/javascript",   WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_scripts_DIR_general_ajax_script_js, sizeof(resource_scripts_DIR_general_ajax_script_js)-1 }, },
+//        { "/scripts/bootstrap.js", "application/javascript",   WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_scripts_DIR_bootstrap_js, sizeof(resource_scripts_DIR_bootstrap_js)-1 }, },
         { "/images/brcmlogo.png",            "image/png",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_brcmlogo_png, sizeof(resource_images_DIR_brcmlogo_png)}, },
         { "/images/brcmlogo_line.png",       "image/png",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_brcmlogo_line_png, sizeof(resource_images_DIR_brcmlogo_line_png)}, },
         { "/styles/buttons.css",             "text/css",                 WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_styles_DIR_buttons_css, sizeof(resource_styles_DIR_buttons_css)}, },
+//        { "/styles/bootstrap.css",             "text/css",                 WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_styles_DIR_bootstrap_css, sizeof(resource_styles_DIR_bootstrap_css)}, },
         { "/",                         "text/html",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_apps_DIR_wicedhack_DIR_top_web_page_top_html, sizeof(resource_apps_DIR_wicedhack_DIR_top_web_page_top_html)-1}, },
         { "/button_handler",           "text/html",                WICED_DYNAMIC_URL_CONTENT, .url_content.dynamic_data = {process_button_handler, 0}, },
 END_OF_HTTP_PAGE_DATABASE();
