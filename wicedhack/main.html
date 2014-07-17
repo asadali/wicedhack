@@ -111,17 +111,21 @@
       </tr>
       <tr><td>&nbsp;</td></tr>
     </table>
-    <div id="currentData" >Retrieving current sensor data...
+      <div class = "well well-lg">
+    <div id="currentData" >No Status to display
     </div>
-    <button type="button"  class="btn btn-default" onclick="loadfbdata()">LoadFBData</button>
-    <div class = "well well-lg" style="margin-left:20px" id="main_text" >
-      <p>Click a button, then look at the UART ... </p>
-      <form name="input" action="/button_handler" method="get"> <table> <tr>
-        <td><input class="btn btn-default" type="submit" name=btname value="Button-01" /></td>
-        <td><input class="btn btn-default" type="submit" name=btname value="Button-02" /></td>
-        <td><input class="btn btn-default" type="submit" name=btname value="Button-03" /></td>
-        <td><input class="btn btn-default" type="submit" name=btname value="Button-04" /></td>
+    <button type="button"  class="btn btn-primary" onclick="loadfbdata()">LoadFBData</button>
+  </div>
+    <div class = "well well-lg" id="main_text" >
+      <p> Manage your home... </p>
+      <form name="input" action="/button_handler" method="get"> <table>
+      <div class="btn-group"> <tr>
+        <td><input class="btn btn-default" type="submit" name=btname value="Thermostat" /></td>
+        <td><input class="btn btn-default" type="submit" name=btname value="AC" /></td>
+        <td><input class="btn btn-default" type="submit" name=btname value="Fridge" /></td>
+        <td><input class="btn btn-default" type="submit" name=btname value="Home Security" /></td>
       </tr>
+    </div>
     </form>
   </div>
 </div>
