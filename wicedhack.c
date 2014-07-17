@@ -106,7 +106,7 @@ static wiced_result_t powersave_toggle( void* arg );
  ******************************************************/
 
 START_OF_HTTP_PAGE_DATABASE(appliance_web_pages)
-    { "/",                         "text/html",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_apps_DIR_appliance_DIR_top_web_page_top_html, sizeof(resource_apps_DIR_appliance_DIR_top_web_page_top_html)-1}, },
+    { "/",                         "text/html",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_apps_DIR_wicedhack_DIR_top_web_page_top_html, sizeof(resource_apps_DIR_wicedhack_DIR_top_web_page_top_html)-1}, },
     { "/button_handler",           "text/html",                WICED_DYNAMIC_URL_CONTENT, .url_content.dynamic_data = {process_button_handler, 0}, },
     { "/images/favicon.ico",       "image/vnd.microsoft.icon", WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_favicon_ico, sizeof(resource_images_DIR_favicon_ico)}, },
     { "/images/brcmlogo.png",      "image/png",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_brcmlogo_png, sizeof(resource_images_DIR_brcmlogo_png)}, },
@@ -188,7 +188,7 @@ static int process_button_handler( const char* url, wiced_tcp_stream_t* stream, 
          {
              char* tmp = (char*)url;
              *tmp = '\x00';
-             printf( "\r\nHello from Team Zanker : Detected button press: %s\r\n\r\n", found_loc );
+             printf( "\r\nTeam Zanker : Detected button press: %s\r\n\r\n", found_loc );
          }
 
 
@@ -200,7 +200,7 @@ static int process_button_handler( const char* url, wiced_tcp_stream_t* stream, 
     }
 
     /* Send the html page back to the client */
-    wiced_tcp_stream_write( stream, resource_apps_DIR_appliance_DIR_top_web_page_top_html, sizeof(resource_apps_DIR_appliance_DIR_top_web_page_top_html) );
+    wiced_tcp_stream_write( stream, resource_apps_DIR_wicedhack_DIR_top_web_page_top_html, sizeof(resource_apps_DIR_wicedhack_DIR_top_web_page_top_html) );
 
     return 0;
 }
