@@ -73,8 +73,8 @@
 #include "resources.h"
 #include "http_server.h"
 #include "gedday.h"
-#include "FreeRTOS.h"
-#include "timers.h"
+
+
 
 /******************************************************
  *                      Macros

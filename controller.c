@@ -15,11 +15,13 @@
  * written permission of Broadcom Corporation.
  */
 
+/*
 #include <stdio.h>
 #include <string.h>
 #include <FreeRTOS.h>
 #include <timers.h>
 #include "rtos.h"
+*/
 #include "wiced.h"
 
 #define ONE_MINUTE  60
