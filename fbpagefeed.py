@@ -26,7 +26,7 @@ result_set = query.json()
 for post in result_set["data"]:
 	#print post
 	if 'message' in post:
-		print post['message']
+		print "MESSAGE = " + post['message'] + " TIME = " + post['created_time']
 # print result_set
 #print result_set["data"][0]["fql_result_set"][0]["message"]
 #print json.dumps(result_set)

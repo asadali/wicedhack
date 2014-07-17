@@ -10,9 +10,14 @@
 
 NAME := WICED_HACK
 
-$(NAME)_SOURCES := wicedhack.c
+$(NAME)_SOURCES := fb_feed.c
+#                   temp_control.c
 
-$(NAME)_COMPONENTS := daemons/gedday
+$(NAME)_COMPONENTS := daemons/gedday \
+                      protocols/facebook \
+                      sensors/NCP18XH103J03RB \
+                      protocols/sntp \
+                      inputs/gpio_keypad
 
 $(NAME)_RESOURCES  := apps/wicedhack/top_web_page_top.html \
                       images/brcmlogo.png \
