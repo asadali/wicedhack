@@ -4,6 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="../../styles/buttons.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <title>Broadcom Facebook Controlled Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="../../scripts/general_ajax_script.js" type="text/javascript"></script>
@@ -50,12 +53,12 @@
         var jsonObj = JSON.parse(req.responseText);
         var bodyText = "Nothing to Display";
         var resText = undefined;
-        for (var i = jsonObj["data"].length - 1; i >= 0; i--) {
+        for (var i = 0; i <= jsonObj["data"].length - 1; i++) {
           if(jsonObj["data"][i]["message"] != undefined){
             if (resText == undefined)
-              resText = jsonObj["data"][i]["message"];
+              resText = "<li class=\"list-group-item\">"+jsonObj["data"][i]["message"] + "</li>";
             else
-            resText = resText + "\n" + jsonObj["data"][i]["message"];
+            resText = resText + "<li class=\"list-group-item\">"+jsonObj["data"][i]["message"] + "</li>";
             console.log("[JSON]", jsonObj["data"][i]["message"]);
           }
         };
@@ -85,7 +88,7 @@
        }
        function loadfbdata()
        {
-        custom_ajax('https://graph.facebook.com/wiced123/posts?access_token=CAAKbXnsGZA3gBAHXB9ro6QcIquhRBmlW2Y2fEGa4sQrACM3VxMLru7FS5tPFZApV4dru5Dlh81WLrAyUC9yYVX57RgLdAighkeERgTxVohVQqPvI7ZBRy9oDR5BZA4g1o5r2AnocutDZBFiGisES00G9WnbS2Et81QOqUJbG0iZCGyB2nnjo8N7Re1H1H4a5kx3p843zOPKuhd6nsP0Ujzs0gZC5vmZBoLcZD',
+        custom_ajax('https://graph.facebook.com/wiced123/posts?access_token=CAAKbXnsGZA3gBAEvY7bLKcYHoci5fQtNZBkh2mxWGX7jHa2wWwOMjyGQobS9VIZBMCgzV3yIHykZCeEdSAF4KZAv1MDN1e9x68itWKbnm602lb5N07gsICvaI6arSZAotNIB7wpvsZBPPIWW9ro7m4IyaUUM4ZBcoeZCpUbsFOZCuwXvOc4unUbcvoSsAQ6mHKTfThYAkZCHZAzfn8ZBoJRMt1utHr28vaql07nAZD',
          'currentData', null, 0, null, null, '<p>FB data error</p>, null');
         timeoutID = setTimeout('reloadData()', 1000);
 
@@ -94,7 +97,8 @@
     </script>
   </head>
   <body onload="reloadData()" style="font-family:verdana;">
-    <table border='0' cellpadding='0' cellspacing='0' width="98%">
+    <div class="container">
+    <table class="table" border='0' cellpadding='0' cellspacing='0' width="98%">
       <tr style="height:20px"><td>&nbsp;</td></tr>
       <tr style="border-collapse: collapse; padding: 0;">
         <td style="width:20px"></td>
@@ -109,16 +113,17 @@
     </table>
     <div id="currentData" >Retrieving current sensor data...
     </div>
-    <button type="button" onclick="loadfbdata()">LoadFBData</button>
-    <div style="margin-left:20px" id="main_text" >
+    <button type="button"  class="btn btn-default" onclick="loadfbdata()">LoadFBData</button>
+    <div class = "well well-lg" style="margin-left:20px" id="main_text" >
       <p>Click a button, then look at the UART ... </p>
       <form name="input" action="/button_handler" method="get"> <table> <tr>
-        <td><input type="submit" name=btname value="Button-01" /></td>
-        <td><input type="submit" name=btname value="Button-02" /></td>
-        <td><input type="submit" name=btname value="Button-03" /></td>
-        <td><input type="submit" name=btname value="Button-04" /></td>
+        <td><input class="btn btn-default" type="submit" name=btname value="Button-01" /></td>
+        <td><input class="btn btn-default" type="submit" name=btname value="Button-02" /></td>
+        <td><input class="btn btn-default" type="submit" name=btname value="Button-03" /></td>
+        <td><input class="btn btn-default" type="submit" name=btname value="Button-04" /></td>
       </tr>
     </form>
   </div>
+</div>
   </body>
 </html>
