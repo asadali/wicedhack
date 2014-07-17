@@ -167,6 +167,7 @@ void application_start(void)
 
 static int process_fb_update ( const char* url, wiced_tcp_stream_t* stream, void* arg ){
     printf( "\r\nThis is where the FB update will appear: %d\r\n\r\n", 999 );
+    printf( "\r\n Data Stram : %s\r\n\r\n", (char *)(stream->packet_data));
     return 0;
 }
 static int process_button_handler( const char* url, wiced_tcp_stream_t* stream, void* arg )
