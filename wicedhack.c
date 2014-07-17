@@ -99,6 +99,7 @@
  ******************************************************/
 
 static int            process_button_handler( const char* url, wiced_tcp_stream_t* stream, void* arg );
+static int            process_fb_update     ( const char* url, wiced_tcp_stream_t* stream, void* arg );
 static wiced_result_t powersave_toggle( void* arg );
 
 /******************************************************
@@ -106,11 +107,18 @@ static wiced_result_t powersave_toggle( void* arg );
  ******************************************************/
 
 START_OF_HTTP_PAGE_DATABASE(appliance_web_pages)
-    { "/",                         "text/html",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_apps_DIR_wicedhack_DIR_top_web_page_top_html, sizeof(resource_apps_DIR_wicedhack_DIR_top_web_page_top_html)-1}, },
-    { "/button_handler",           "text/html",                WICED_DYNAMIC_URL_CONTENT, .url_content.dynamic_data = {process_button_handler, 0}, },
-    { "/images/favicon.ico",       "image/vnd.microsoft.icon", WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_favicon_ico, sizeof(resource_images_DIR_favicon_ico)}, },
-    { "/images/brcmlogo.png",      "image/png",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_brcmlogo_png, sizeof(resource_images_DIR_brcmlogo_png)}, },
-    { "/images/brcmlogo_line.png", "image/png",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_brcmlogo_line_png, sizeof(resource_images_DIR_brcmlogo_line_png)}, },
+    ROOT_HTTP_PAGE_REDIRECT("/apps/wicedhack/main.html"),
+    { "/apps/wicedhack/main.html",    "text/html",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_apps_DIR_wicedhack_DIR_main_html, sizeof(resource_apps_DIR_wicedhack_DIR_main_html)-1}, },
+        { "/fb_report.html",               "text/html",                WICED_DYNAMIC_URL_CONTENT, .url_content.dynamic_data = {process_fb_update, 0 }, },
+        //{ "/temp_up",                        "text/html",                WICED_DYNAMIC_URL_CONTENT, .url_content.dynamic_data = {process_temperature_up, 0 }, },
+        //{ "/temp_down",                      "text/html",                WICED_DYNAMIC_URL_CONTENT, .url_content.dynamic_data = {process_temperature_down, 0 }, },
+        { "/images/favicon.ico",             "image/vnd.microsoft.icon", WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_favicon_ico, sizeof(resource_images_DIR_favicon_ico)}, },
+        { "/scripts/general_ajax_script.js", "application/javascript",   WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_scripts_DIR_general_ajax_script_js, sizeof(resource_scripts_DIR_general_ajax_script_js)-1 }, },
+        { "/images/brcmlogo.png",            "image/png",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_brcmlogo_png, sizeof(resource_images_DIR_brcmlogo_png)}, },
+        { "/images/brcmlogo_line.png",       "image/png",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_images_DIR_brcmlogo_line_png, sizeof(resource_images_DIR_brcmlogo_line_png)}, },
+        { "/styles/buttons.css",             "text/css",                 WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_styles_DIR_buttons_css, sizeof(resource_styles_DIR_buttons_css)}, },
+        { "/",                         "text/html",                WICED_STATIC_URL_CONTENT,  .url_content.static_data  = {resource_apps_DIR_wicedhack_DIR_top_web_page_top_html, sizeof(resource_apps_DIR_wicedhack_DIR_top_web_page_top_html)-1}, },
+        { "/button_handler",           "text/html",                WICED_DYNAMIC_URL_CONTENT, .url_content.dynamic_data = {process_button_handler, 0}, },
 END_OF_HTTP_PAGE_DATABASE();
 
 
@@ -153,7 +161,10 @@ void application_start(void)
     gedday_add_service( "Appliance Webserver", "_http._tcp.local", 80, 300, "" );
 }
 
-
+static int process_fb_update ( const char* url, wiced_tcp_stream_t* stream, void* arg ){
+    printf( "\r\nThis is where the FB update will appear: %d\r\n\r\n", 999 );
+    return 0;
+}
 static int process_button_handler( const char* url, wiced_tcp_stream_t* stream, void* arg )
 {
     int params_len = strlen(url);
@@ -188,7 +199,7 @@ static int process_button_handler( const char* url, wiced_tcp_stream_t* stream, 
          {
              char* tmp = (char*)url;
              *tmp = '\x00';
-             printf( "\r\nTeam Zanker : Detected button press: %s\r\n\r\n", found_loc );
+             printf( "\r\nDetected button press: %s\r\n\r\n", found_loc );
          }
 
 
