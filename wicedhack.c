@@ -211,7 +211,7 @@ static int process_button_handler( const char* url, wiced_tcp_stream_t* stream, 
     }
 
     /* Send the html page back to the client */
-    wiced_tcp_stream_write( stream, resource_apps_DIR_wicedhack_DIR_top_web_page_top_html, sizeof(resource_apps_DIR_wicedhack_DIR_top_web_page_top_html) );
+    wiced_tcp_stream_write( stream, resource_apps_DIR_wicedhack_DIR_main_html, sizeof(resource_apps_DIR_wicedhack_DIR_main_html) );
 
     return 0;
 }
