@@ -98,11 +98,13 @@
         //setTimeout("location.reload(true);", t);
         setTimeout("location.reload(true);", t);
       }
+      $(document).ready(function () { setInterval(loadfbdata, 2000); });
     /* ]]> */
     </script>
   </head>
   <!--<body onload="timer = setTimeout('loadfbdata()',1000)" style="font-family:verdana;">-->
-  <body onload="JavaScript:AutoRefresh(5000)" style="font-family:verdana;">
+  <!--<body onload="JavaScript:AutoRefresh()" style="font-family:verdana;">-->
+  <body onload="loadfbdata()" style="font-family:verdana;">
     <div class="container">
     <table class="table" border='0' cellpadding='0' cellspacing='0' width="98%">
       <tr style="height:20px"><td>&nbsp;</td></tr>
